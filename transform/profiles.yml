@@ -9,7 +9,7 @@ default:
         type: postgres
         threads: 8
         dbname: postgres
-        schema: public
+        schema: analytics
         user: postgres
         password: postgres
         host: localhost # your Postgres host name

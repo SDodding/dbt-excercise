@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_products
+    columns:
+      - name: product_id 
+        description: The surrogate key of the product
+        tests:
+          - not_null
+          - unique
+      - name: sku
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - not_null
+      - name: size
+        tests:
+          - not_null
+      - name: asin
+        tests:
+          - not_null
