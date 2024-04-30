@@ -1,0 +1,35 @@
+default:
+    target: dev
+    outputs:
+      dev:
+        type: postgres
+
+        # More information for the options in this file
+        # can be found here: https://docs.getdbt.com/dbt-cli/configure-your-profile
+
+        threads: 8
+
+        # Set the DBT_DATABASE in your CI
+        database: "{{ env_var('DBT_DATABASE') }}"
+        schema: dev
+
+        # Set variable DBT_USER in your CI
+        user: "{{ env_var('DBT_USER') }}"
+
+        # Set variable DBT_PASSWORD in your CI
+        password: "{{ env_var('DBT_PASSWORD') }}"
+
+        # Additional Postgres options
+        # Find out more about Postgres config options here:
+        # https://docs.getdbt.com/reference/warehouse-profiles/postgres-profile
+
+        # Set variable DBT_POSTGRES_HOST in your CI
+        host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+        port: 5432
+
+        keepalives_idle: 0 # default 0, indicating the system default.
+        connect_timeout: 10 # default 10 seconds
+        
+        # search_path: [optional, override the default postgres search_path]
+        # role: [optional, set the role dbt assumes when executing queries]
+        # sslmode: [optional, set the sslmode used to connect to the database]
