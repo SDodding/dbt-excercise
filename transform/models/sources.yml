@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: postgres  
+    schema: analytics_raw  
+    tables:
+      - name: amazon_sale_report

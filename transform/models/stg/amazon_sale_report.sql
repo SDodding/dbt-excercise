@@ -28,7 +28,7 @@ WITH amazon_sales_distinct AS (
         ,a."B2B"                        AS b2b
         ,a."fulfilled-by"               AS fulfilled_by
     FROM
-        analytics_raw.amazon_sale_report AS a
+        {{ source('raw', 'amazon_sale_report') }} AS a
 )
 
 SELECT
