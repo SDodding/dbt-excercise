@@ -5,12 +5,14 @@ dbt_packages/
 .config/.user.yml
 /profiles.yml
 
+# Exclude superset dir EXCEPT gitkeep
+superset/
+
 # Virtual envs
 venv/
 .env
 .venv
 env/
-
 
 # VS Code
 .vscode/
