@@ -15,9 +15,15 @@ clean-targets:
 
 models:
   dbt_assignment:
+    stg:
+      +materialized: table
+      +schema: stg
     dwh:
       +materialized: table
       +schema: dwh
+    dm:
+      +materialized: table
+      +schema: dm
 
 seeds:
-  schema: stg
+  schema: raw
