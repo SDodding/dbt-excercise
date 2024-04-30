@@ -57,14 +57,14 @@ Unfortunately there wasn't time to save and pre-populate a dashboard in Grafana.
 
 Initially bootstrapped with (cookiecutter-dbt)[https://github.com/datacoves/cookiecutter-dbt]
 
-I was tempted to do the majority of this work in a jupyter notebook or equivalent, however I'm used to spinning up local platforms like this - so docker seemed like a nice way to go. Retrospectively that might have allowed me to add a satisfying narrative.
+I was tempted to do the majority of this work in a jupyter notebook or equivalent, however I'm used to spinning up local platforms like this - so docker seemed like a nice way to go. Retrospectively a notebook might have allowed me to add a satisfying narrative.
 
-I unfortunatley ran out of time I had available to spend on this, so aspects are less tidy than I'd like. I'm happy to talk through all the missing parts and intentions, some notes off the top of my head here:
+I unfortunatley ran out of time available to spend on this, so aspects are less tidy than I'd like. I'm happy to talk through all the missing parts and architecture however. Some notes off the top of my head here:
 
 On DBT:
 
-- DBT seed is upsettingly slow (and unsuitable) for large fixtures, so a short python script ingests the CSV into the database initially. It uses PySpark and the JDBC driver as that seemed relevant to this excercise, but I'd otherwise just use psycopg2 and the postgres COPY command to ingest it directly to the DB.
-- DBT added snapshots since the last time I built a DWH with it - I'd be interested to explore that
+- DBT seed is upsettingly slow (and unsuitable) for large fixtures, so a short python script ingests the CSV into the database initially. It uses PySpark and the JDBC driver as that seemed relevant to this excercise, but I'd otherwise just use psycopg2 and the postgres COPY command to ingest it directly to the DB to avoid pyspark doing quite so much type inference.
+- DBT had added snapshots as a feature since the last time I built a DWH with it - I'd be interested to explore that
 - UML/ERD Diagrams are always handy, It'd be interesting to explore auto generating these from DBT with something like (DBTerd)[https://github.com/datnguye/dbterd]
 
 On the models in this project:
