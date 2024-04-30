@@ -15,6 +15,10 @@ WITH state_sales AS (
     ON s.product_id = p.product_id 
   JOIN {{ ref('dim_locations') }}   AS l 
     ON s.location_id = l.location_id
+  JOIN {{ ref('dim_order_status') }}   AS o
+    ON s.order_status_id = o.order_status_id
+    AND o.success = TRUE
+
   GROUP BY
     l.state, p.category
 ),
